@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto11
+  pre_build:
+    commands:
+      #- echo Code Scanning using SonarQube
+      #- mvn verify sonar:sonar
+      - echo Connecting AWS CodeArtifact 
+      - export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain bcr --domain-owner 420815905200 --region us-east-1 --query authorizationToken --output text`
+  build:
+    commands:
+      - echo Build started on `date`
+      - pwd
+      - ls -lrta
+      - ls -lrt $CODEBUILD_SRC_DIR/settings.xml
+      - cp -pvr $CODEBUILD_SRC_DIR/settings.xml ~/.m2/settings.xml
+      - mvn deploy
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - target/b78am.war
