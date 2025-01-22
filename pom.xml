@@ -2,7 +2,7 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.aws.codestar.projecttemplates</groupId>
-    <artifactId>b78am</artifactId>
+    <artifactId>application</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>Cloud Binary - Sample Spring MVC Application</name>
@@ -38,8 +38,8 @@
 <distributionManagement>
     
       <repository>
-        <id>bcr-b78am</id>
-        <url>https://bcr-420815905200.d.codeartifact.us-east-1.amazonaws.com/maven/b78am/</url>
+        <id>new_app</id>
+        <url>https://bcr-420815905200.d.codeartifact.us-east-1.amazonaws.com/maven/new_app/</url>
       </repository>
 
 </distributionManagement>    
@@ -134,6 +134,6 @@
                 </plugin>
             </plugins>
         </pluginManagement>
-        <finalName>b78am</finalName>
+        <finalName>application</finalName>
     </build>
 </project>
