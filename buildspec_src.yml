@@ -19,12 +19,10 @@ phases:
       #- cp -pvr $CODEBUILD_SRC_DIR/settings.xml ~/.m2/settings.xml
       #- echo Publish Artifact To JFROG based on the User Input in POM.xml file 
       - mvn clean
-      - echo "Deliver Artifact To Tomcat & Deploy"
-      - aws s3 cp s3://8amcloudbinary/devops.war /usr/share/tomcat/webapps/devops.war
+      # - echo "Deliver Artifact To Tomcat & Deploy"
+     # - aws s3 cp s3://8amcloudbinary/devops.war /usr/share/tomcat/webapps/devops.war
       #- sh 'curl -u admin:redhat@123 -T target/**.war "http://44.211.143.213:8080/manager/text/deploy?path=/b78am&update=true"'
   post_build:
     commands:
       - echo Build completed on `date`
-artifacts:
-  files:
-    - target/b78am.war
+
